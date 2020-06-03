@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -17,9 +18,13 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  //function for getting data
+  Future<String> getData() async {
+    http.Response response = await http.get(
+        Uri.encodeFull("https://jsonplaceholder.typicode.com/posts"),
+        headers: {"Accept": "application/json"});
 
-  getData() aynsc{
-
+    print(response.body);
   }
 
   @override
@@ -34,6 +39,7 @@ class _HomePageState extends State<HomePage> {
               backgroundColor: Colors.teal,
             ),
           ),
+          onPressed: getData,
         ),
       ),
     );
