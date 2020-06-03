@@ -24,7 +24,10 @@ class _HomePageState extends State<HomePage> {
         Uri.encodeFull("https://jsonplaceholder.typicode.com/posts"),
         headers: {"Accept": "application/json"});
 
-    print(response.body);
+   // print(response.body);
+
+    List data = json.decode(response.body);
+    print(data);
   }
 
   @override
