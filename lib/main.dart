@@ -18,6 +18,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+
+
   //function for getting data
   Future<String> getData() async {
     http.Response response = await http.get(
@@ -27,7 +29,7 @@ class _HomePageState extends State<HomePage> {
    // print(response.body);
 
     List data = json.decode(response.body);
-    print(data);
+    print(data[1]["title"]);
   }
 
   @override
